@@ -1,0 +1,22 @@
+
+<svg width="54px" height="55px" viewBox="0 0 54 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="6.42175792 19 19.5782421 19 26 31 0 31"></polygon>
+    </defs>
+    <g id="splash" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Login-Screen" transform="translate(-485.000000, -446.000000)">
+            <g id="Group-3" transform="translate(486.000000, 447.000000)">
+                <g id="Group-2" transform="translate(13.000000, 11.000000)">
+                    <g id="Rectangle-2">
+                        <use fill="#000000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <path stroke="#979797" stroke-width="0.5" d="M6.57151823,19.25 L0.417333552,30.75 L25.5826664,30.75 L19.4284818,19.25 L6.57151823,19.25 Z"></path>
+                    </g>
+                    <ellipse id="Oval" stroke="#979797" stroke-width="0.5" fill="#000000" cx="13" cy="7.5" rx="7" ry="7.5"></ellipse>
+                </g>
+                <ellipse id="Oval-2" stroke="#070707" cx="26" cy="26.5" rx="26" ry="26.5"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

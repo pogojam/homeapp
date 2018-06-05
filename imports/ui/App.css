@@ -1,0 +1,372 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  
+}
+
+.App {
+  text-align: center;
+  color: black;
+  width: 100vw;
+  font-family: 'Julius Sans One', sans-serif;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a{
+text-decoration: none;
+}
+ 
+.ui{
+  font-family: 'Julius Sans One', sans-serif !important;
+}
+/* Logo */
+#AppLogo {
+  stroke: #989ea5;
+}
+
+/*Defaults*/
+.lc{
+  text-transform: lowercase ;
+}
+
+
+
+
+
+.ui.button{
+  border-radius: 10.285714rem;
+  background: none;
+  border: solid #989ea5 2px;
+  transition: all .3s;
+  font-size: .9em;
+}
+
+.ui.button:hover{
+background-color: none;
+transform: scale(1.1);
+background: none;
+
+}
+
+
+
+/*Home */
+
+.home{
+  width:100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  transition: all 2s;
+}
+
+.home-panel{
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-panel + div {
+  background-color: #D8D8D8;
+}
+
+.home-panel > .button {
+  background-color: transparent;
+  border: black solid 1px;
+  margin: 2em;
+}
+.home-panel > i {
+  align-self: center;
+}
+.home-subheader{
+  transition: all .5s ;
+  font-size: .2em;
+}
+.header-home{
+  display: grid;
+  grid-template-rows: 1fr;
+}
+/* HomeSplash */
+.splash{
+  display: grid;
+  grid-template-rows: 1fr 2fr 3fr;
+}
+.splash-container{
+  display: flex;
+  grid-gap: 4em;
+}
+
+.card{
+  color: dimgray;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0;
+  padding: .5em;
+  transition: all 1.3s;
+}
+.card:hover{
+  background: #cddbea;
+}
+/* homeWeb */
+
+.homeWeb{
+  display: grid;
+  height: 100%;
+  width: 100vw;
+}
+.homeWeb>div:not(.homeWeb-footer){
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-background{
+  background-size: cover;
+  background: url('./assets/kitchen.jpg')
+}
+.slider{
+  width: 100%;
+  flex-grow: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.container{
+  display: block;
+  height: 100%;
+  overflow: hidden;
+}
+
+.homeWeb-Nav{
+  background-color: rgba(255, 228, 225, 0.62);
+  display: flex;
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  width:100%;
+  justify-content: flex-end;
+  transition: all 1s;
+  z-index: 99999;
+}
+ .homeWeb-Nav button.ui {
+  margin-right: 6em;
+}
+.logoWeb{
+  margin-right:auto;
+  height: 3em;
+}
+
+.homeWeb-maintenance{
+  background: url('../../photos/blur-chrome-close-up-240312.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  color: wheat;
+}
+.homeWeb-footer{
+  background-color: black;
+  height: 20vh !important;
+  color: whitesmoke;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+}
+
+.scroll{
+  padding: 0em;
+  background-color:rgba(154, 149, 149, 0.24);
+}
+/*Log in Form
+*/
+
+.loginForm{
+  align-content: center;
+  display: grid;
+  color: whitesmoke !important;
+  height: 100vh;
+}
+
+.loginForm-input{
+font-family: inherit;
+margin: .3em;
+text-align: center;
+font-size: .9em;
+align-self: center;
+border: whitesmoke  solid  1px ;
+height: 3em;
+border-left: 0px;
+border-right: 0px;
+
+} 
+
+.loginForm-Button{
+  font-family: inherit;
+  border: 1px solid black;
+  width:9em;
+  height: 3em;
+  border-radius: 50px;
+  margin: 2em;
+}
+
+/* User Form */
+
+.userForm{
+  display: grid;
+  grid-gap: 1.5em;
+
+}
+
+/*Dashboard*/  
+
+.dashboard{
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template-columns: 1fr 12fr;
+}
+
+
+.dashboard-Nav{
+  height: 100%;
+  padding-top: 10vw;
+  color: #607992 ;
+}
+.dashboard-Nav:first-child {
+
+}
+
+.menu-Container{
+    display: grid;
+    grid-template-rows: repeat(4fr,4);
+    height: auto;
+}
+
+.dashboard-Panel{
+margin: 2em;
+overflow: scroll;
+}
+
+
+.dashboard-Panel::-webkit-scrollbar{
+  display: none;
+}
+.dasboard-topPanel-Header{
+  width: 40vw;
+}
+
+
+
+.dashboard-Panel--Wrapper{
+  display: grid;
+  grid-gap: 2em ;
+  height: 100%;
+  
+}
+
+
+.dashboard-Panel--Wrapper > div {
+
+    overflow: hidden;
+}
+
+.dashboard-userView{
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.5em;
+    text-transform: lowercase;
+    font-size: .8em;
+} 
+
+.dashboard-header{
+  font-size: 1em;
+
+}
+.live-FeedPanel{
+  grid-column-end: 3;
+  grid-column-start: 1;
+  display: grid;
+}
+
+/* 
+Animations
+*/
+.fade-appear{
+  opacity: 0;
+ 
+
+}
+.fade-enter{
+
+}
+.fade-enter-active{
+  display: none;
+}
+
+.fade-exit{
+  opacity: 0;
+  transition: all .3s;
+}
+
+.show{
+  opacity: 1;
+}
+.hidden{
+  opacity: 0;
+}
+
+/* 
+Roomate Tile Styles
+*/
+.info-Romate{
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.spinner{
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid darkslategray; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    z-index: -99;
+}
+
+
+@keyframes spin {
+  from{
+    transform: rotate(0deg)
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
+
+/* 
+Hardware Page
+*/
+
+.Hardware{
+  display: grid;
+  height: 100%;
+  grid-gap: 20px;
+}
+.Hardware > div {
+  background-color: floralwhite;
+}
