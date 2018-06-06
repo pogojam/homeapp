@@ -31,7 +31,7 @@ class AppComponent extends Component {
                   <Route exact path={"/Login"} component={PAGE.UserLogin}/>
                   <Route exact path={"/UserForm"} component={PAGE.UserForm} />
                   <Route exact path={"/HouseDash"} component={PAGE.HouseDash}/>
-                  <Route exact path={"/userSplash"} component={PAGE.HouseBoarding}/>
+                  <Route exact path={"/HouseBoarding"} component={PAGE.HouseBoarding}/>
                 </Switch>
               </CSSTransition>
             </TransitionGroup>

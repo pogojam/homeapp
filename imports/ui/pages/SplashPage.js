@@ -151,6 +151,9 @@ render(){
         <UserContext.Consumer>
           { (authUser)=> authUser? <Button onClick={auth.getLoggedOut} >Logout</Button>:<Button  onClick={ ()=>history.push('/login') } > Login</Button> }
         </UserContext.Consumer>
+        <UserContext.Consumer>
+          { (authUser)=> authUser? <Button onClick={ ()=>history.push('./HouseDash') } >MyDash</Button>:null }
+        </UserContext.Consumer>
             <Button onClick={ ()=>history.push('/userForm') } >SignUp </Button>
             <Button  onClick={ ()=>history.push('/help') } > Help </Button>
     </div>}

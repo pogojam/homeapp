@@ -100,6 +100,7 @@ background: none;
 .splash{
   display: grid;
   grid-template-rows: 1fr 2fr 3fr;
+
 }
 .splash-container{
   display: flex;
@@ -115,6 +116,20 @@ background: none;
 .card:hover{
   background: #cddbea;
 }
+/* houseboarding */
+.houseboarding{
+  height: 100vh;  
+  display: flex;
+  align-items: center;
+}
+.houseboarding-form{
+  display:grid;
+  border: solid gray 2px;
+  border-top: none;
+  border-right: none;
+  padding: 2em;
+}
+
 /* homeWeb */
 
 .homeWeb{
