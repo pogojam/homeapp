@@ -45,14 +45,14 @@ text-decoration: none;
 
 .ui.button{
   border-radius: 10.285714rem;
-  background: none;
+  background: none !important;
   border: solid #989ea5 2px;
   transition: all .3s;
   font-size: .9em;
 }
 
 .ui.button:hover{
-background-color: none;
+background-color: none !important;
 transform: scale(1.1);
 background: none;
 
@@ -130,7 +130,7 @@ background: none;
 
 .slider-background{
   background-size: cover;
-  background: url('./assets/kitchen.jpg')
+  background: url('')
 }
 .slider{
   width: 100%;

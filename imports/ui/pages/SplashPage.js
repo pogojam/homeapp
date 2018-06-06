@@ -32,7 +32,7 @@ class homeWeb extends Component {
                 <div className='container' >
                 <WithNav user={this.state.user} top={this.state.isTop} />
                     <div className="slider slider-background">
-                    <div className='slider-background' >
+                    <div  >
                             <h1 >Manage your new home</h1>
                             <Button>Add home</Button>
                     </div>
@@ -40,7 +40,7 @@ class homeWeb extends Component {
                 </div>
 
                 <div id='automation' className='slider  animated ' >
-                <Waypoint   section='automation' onEnter={this.sectionEnter} ></Waypoint>
+                <Waypoint section='automation' onEnter={this.sectionEnter} />
                     <h1>
                     Track your home 
                     </h1>
@@ -61,7 +61,7 @@ class homeWeb extends Component {
                     
                 <div  className=' slider homeWeb-maintenance animated ' >
 
-                    <Waypoint section='maintenance' onEnter={this.sectionEnter} ></Waypoint>
+                    <Waypoint section='maintenance' onEnter={this.sectionEnter} />
                     <div id='maintenance'  className='animated ' >
                     <h1>
                         Get access to monthly home services
