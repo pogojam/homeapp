@@ -3,7 +3,7 @@ import { Radio,Icon, Input, Button } from "semantic-ui-react";
 import { Link, Route , withRouter } from "react-router-dom";
 
 import { Redirect } from "react-router";
-import {auth} from '../../startup/firebase'
+import {auth} from '../../api/firebase'
 
 let initState = {
   pass: "",

@@ -8,7 +8,7 @@ import {
     Divider,
     Item
   } from "semantic-ui-react";
-    import {auth} from '../../startup/firebase'
+    import {auth} from '../../api/firebase'
 
 class Nav extends Component {
 

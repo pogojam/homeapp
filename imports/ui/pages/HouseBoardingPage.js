@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { db } from "../../startup/firebase";
+import { db } from "../../api/firebase";
 import { withRouter } from "react-router-dom";
 import * as FORMS from '../components/BoardingForm'
 import { Icon } from "semantic-ui-react";

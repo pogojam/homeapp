@@ -3,7 +3,7 @@ import {Button,Icon} from 'semantic-ui-react'
 import Waypoint from 'react-waypoint'
 import {Link, withRouter } from 'react-router-dom'
 import UserContext from '../components/UserContext'
-import {auth} from '../../startup/firebase'
+import {auth} from '../../api/firebase'
 import withAuthorization from '../components/withAuthorization';
 import {Query} from 'react-apollo'
 import gql from 'graphql-tag'
@@ -84,7 +84,6 @@ class homeWeb extends Component {
 
                 </div>
                 <div className='homeWeb-footer' >
-                   <ExchangeRate></ExchangeRate> 
                     <ul style={{ marginTop:'1.25em' }} className='ui list' >
                     <h2>Company</h2> 
                     <li>about</li>
@@ -158,42 +157,6 @@ render(){
             <Button  onClick={ ()=>history.push('/help') } > Help </Button>
     </div>}
 }
-
-
-
-
-
-
-const ExchangeRate  = () => (
-    <Query 
-        query={gql`
-        {
-        rates(currency: "USD") {
-          currency
-          rate
-        }
-      }
-        `} >  
-     {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
-
-      return data.rates.map(({ currency, rate }) => (
-        <div key={currency}>
-          <p>{`${currency}: ${rate}`}</p>
-        </div>
-      ));
-    }}
-    </Query>
-)
-
-
-
-
-
-
-
-
 
 
 

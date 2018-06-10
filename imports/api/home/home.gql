@@ -1,0 +1,9 @@
+
+type Home{
+    _id:String!
+    name:String!
+}
+
+type Mutation {
+    createHome:Home
+}

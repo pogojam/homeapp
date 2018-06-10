@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {firebase} from '../../startup/firebase'
+import {firebase} from '../../api/firebase'
 import UserContext from './UserContext'
 
 const withAuthentication = (Component)=>{
