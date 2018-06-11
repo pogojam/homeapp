@@ -3,12 +3,25 @@ import { db } from "../../api/firebase";
 import { withRouter } from "react-router-dom";
 import * as FORMS from '../components/BoardingForm'
 import { Icon } from "semantic-ui-react";
+import withAuthorization from '../components/withAuthorization';
+import {Query} from 'react-apollo'
+import gql from 'graphql-tag'
+
+
+const HOUSES = gql`
+query:{
+    Houses($uid:String!){
+      Houses(uid:$uid){
+        email
+      }
+    }
+}
+`
 
 const UserSplash = () => {
   class userSplash extends Component {
     constructor(props) {
-      super(props);
-   
+      super(props);   
       this.state = {
         home: null,
         name: null,
@@ -32,6 +45,13 @@ const UserSplash = () => {
           <h1>Welcome to your home</h1>
           Tools help make managing you home easy
           <div className="splash-container">
+
+        <Query query={HOUSES} >
+            {(data)=>(
+                  console.log(data)
+            )}
+        </Query >
+
             {!activeForm && <Nonactiveform handleChangeForm={this.handleChangeForm.bind(this)} />}
             {activeForm === 1 && <FORMS.form1/> }
             {activeForm === 2 && <FORMS.form2/> } 

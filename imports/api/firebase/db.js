@@ -7,8 +7,8 @@ export const doCreateUser  = (email,id)=>{
     })
 }
 
-export const onceGetUsers = () =>{
-    db.collection('users').get()
+export const onceGetUsers = (uid) =>{
+   return db.collection('users').doc(uid)
 }
 
 // homes

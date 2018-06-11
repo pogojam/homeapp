@@ -7,15 +7,18 @@ const userRef = uid =>
     .collection("users")
     .doc(uid)
     .get()
-    .then(doc => doc.data());
+    ;
+
+
+    userRef('ySbiTSQi8uMlxRD6HlkpvDfhZe02').then(doc => console.log(doc.data()))
 
 export default {
 
 
 
   Query:{
-    Users(uid){
-      return  userRef(uid)
+    User(args){
+     return userRef(args).then(doc => doc.data())
     }  
   }
 

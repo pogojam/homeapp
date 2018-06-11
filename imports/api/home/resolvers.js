@@ -1,9 +1,13 @@
 import Homes from "./home";
+import {db} from '../firebase'
+
+
+
 
 export default {
   Query: {
-    homes() {
-      Homes.find({}).fetch();
+    Homes(uid) {
+    
     }
   },
   Mutation: {

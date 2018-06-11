@@ -10,8 +10,8 @@ import userSchema from '../../api/user/user.gql'
 const testSchema = `
 type Query{
     house:String
-    homes:[Home]
-    Users(uid:String):[User]
+    Homes(uid:String!):[Home]
+    User(uid:String!):User
 }
 `
 
