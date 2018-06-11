@@ -11,3 +11,5 @@ export const createUser = (email,password)=>{
   export const getLoggedOut = ()=>{
   return auth.signOut()
   }
+
+  

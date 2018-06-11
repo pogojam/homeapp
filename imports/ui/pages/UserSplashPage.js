@@ -1,62 +1,51 @@
 import React, { Component } from "react";
 import { db } from "../../api/firebase";
 import { withRouter } from "react-router-dom";
-import * as FORMS from '../components/BoardingForm'
+import * as FORMS from "../components/BoardingForm";
 import { Icon } from "semantic-ui-react";
-import withAuthorization from '../components/withAuthorization';
-import {Query} from 'react-apollo'
-import gql from 'graphql-tag'
+import withAuthorization from "../components/withAuthorization";
+import { Query, graphql } from "react-apollo";
+import gql from "graphql-tag";
+import UserContext from "../components/UserContext";
 
-
-const HOUSES = gql`
-query:{
-    Houses($uid:String!){
-      Houses(uid:$uid){
-        email
-      }
+const UserHouses = gql`
+  query houses($uid: String!) {
+    houses(uid: $uid) {
+      name
     }
-}
-`
+  }
+`;
 
 const UserSplash = () => {
   class userSplash extends Component {
     constructor(props) {
-      super(props);   
+      super(props);
       this.state = {
         home: null,
         name: null,
-        activeForm:null
+        activeForm: null
       };
     }
 
-    handleChangeForm (num){
-        this.setState({
-            activeForm:num
-        })
+    handleChangeForm(num) {
+      this.setState({
+        activeForm: num
+      });
     }
-    componentDidMount() {}
 
     render() {
-      const {  activeForm,home, name } = this.state;
+      const { activeForm, home, name } = this.state;
 
       return (
         <div className="houseboarding">
-        <div className="splash">
-          <h1>Welcome to your home</h1>
-          Tools help make managing you home easy
-          <div className="splash-container">
-
-        <Query query={HOUSES} >
-            {(data)=>(
-                  console.log(data)
-            )}
-        </Query >
-
-            {!activeForm && <Nonactiveform handleChangeForm={this.handleChangeForm.bind(this)} />}
-            {activeForm === 1 && <FORMS.form1/> }
-            {activeForm === 2 && <FORMS.form2/> } 
+          <div className="splash">
+            <h1>Welcome to your home</h1>
+            Tools help make managing you home easy
+            <div className="splash-container">
+              <NewHomeAvatar />
+              <UserHomes />
+            </div>
           </div>
-        </div>
         </div>
       );
     }
@@ -64,25 +53,38 @@ const UserSplash = () => {
   return withRouter(userSplash);
 };
 
-const Nonactiveform = (props)=>(
-      <HomeAvatar {...props} />
-)
+const NewHomeAvatar = () => (
+  <div className="card" style={{ height: "100%" }}>
+    <h2>Add Home</h2>
+    <Icon name="plus" />
+  </div>
+);
+
+const UserHomes = props => (
+  <UserContext.Consumer>
+    {userData => {
+      const uid = { uid: userData[1] };
+
+      return (
+        <Query query={UserHouses} variables={uid}>
+          {({ loading, error, data }) => {
+            if (loading) return "Loading...";
+            if (error) return `Error! ${error.message}`;
+            if(data) return data.houses.map((data,i) => <HomeAvatar key={i} {...data} />)
+            else return null
+          }}
+        </Query>
+      );
+    }}
+  </UserContext.Consumer>
+);
 
 
-const HomeAvatar = ({ handleChangeForm, home, name }) => {
+const HomeAvatar = ({ name }) => {
   return (
     <div className="card">
-      {home ? (
-        <div>
-          <Icon name="home" />
-          <h2>{name}</h2>
-        </div>
-      ) : (
-        <div style={{ height:'100%' }} onClick={()=>handleChangeForm(1)} >
-          <h2>Add Home</h2>
-          <Icon name="plus" />
-        </div>
-      )}
+      <Icon name="home" />
+      <h2>{name}</h2>
     </div>
   );
 };

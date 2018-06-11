@@ -5,11 +5,13 @@ import {db} from '../firebase'
 
 
 export default {
-  Query: {
-    Homes(uid) {
-    
+
+  Query:{
+    houses(obj,{uid},context){
+      return db.onceGetUsers(uid).get().then(doc => doc.data().houses )
     }
   },
+  
   Mutation: {
     createHome() {
       Homes.insert({

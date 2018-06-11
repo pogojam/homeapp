@@ -42,15 +42,9 @@ class AppComponent extends Component {
   }
 }
 
-const houseQuery = gql`
-{
-    house
-}
-`
-
 
 const App =  withAuthentication(AppComponent);
 
 
-export default graphql(houseQuery)(App)
+export default App
 

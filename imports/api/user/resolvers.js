@@ -6,19 +6,15 @@ const userRef = uid =>
   db
     .collection("users")
     .doc(uid)
-    .get()
-    ;
-
-
-    userRef('ySbiTSQi8uMlxRD6HlkpvDfhZe02').then(doc => console.log(doc.data()))
+    .get();
 
 export default {
 
 
 
   Query:{
-    User(args){
-     return userRef(args).then(doc => doc.data())
+    User({uid}){
+      return  userRef(uid).then(doc => doc.data())
     }  
   }
 

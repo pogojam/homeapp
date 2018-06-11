@@ -22,7 +22,8 @@ return class WithAuthentication extends Component {
       firebase.auth.onAuthStateChanged(user => {
         if (user) {
           this.setState({
-            authUser: true
+            authUser: true,
+            authUserID:user.uid
           });
         } else {
           this.setState({
@@ -34,7 +35,7 @@ return class WithAuthentication extends Component {
 
   render() {
     return (
-      <UserContext.Provider value={this.state.authUser} >
+      <UserContext.Provider  value={[this.state.authUser,this.state.authUserID]} >
           <Component/>
       </UserContext.Provider>
     )

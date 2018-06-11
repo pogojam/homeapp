@@ -3,7 +3,8 @@ import {db} from './server'
 
 export const doCreateUser  = (email,id)=>{
     db.collection('users').doc(id).set({
-        email:email
+        email:email,
+        houses:[]
     })
 }
 

@@ -1,7 +1,7 @@
 
 type Home{
-    _id:String!
     name:String!
+    address:String
 }
 
 type Mutation {

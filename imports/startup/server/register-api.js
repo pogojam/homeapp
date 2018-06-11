@@ -9,25 +9,14 @@ import userSchema from '../../api/user/user.gql'
 
 const testSchema = `
 type Query{
-    house:String
-    Homes(uid:String!):[Home]
+    houses(uid:String!):[Home]
     User(uid:String!):User
 }
 `
 
 const typeDefs = [testSchema,homesSchema,userSchema]
+const resolvers = merge(HomeResolvers,UserResolvers)
 
-
-
-const resolver = {
-    Query:{
-        house(){
-            return '1301 N Scottsdale RD'
-        }
-    }
-}
-
-const resolvers = merge(resolver,HomeResolvers,UserResolvers)
 const schema = makeExecutableSchema({typeDefs,resolvers})
 
 createApolloServer({schema})
