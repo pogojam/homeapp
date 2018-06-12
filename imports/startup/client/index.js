@@ -7,6 +7,7 @@ import {ApolloProvider} from 'react-apollo'
 import {HttpLink} from 'apollo-link-http'
 import {InMemoryCache} from 'apollo-cache-inmemory'
 import {BrowserRouter} from 'react-router-dom'
+require('dotenv').config()
 
 const httpLink = new HttpLink({
     uri:Meteor.absoluteUrl('graphql')

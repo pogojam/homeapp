@@ -3,9 +3,16 @@ export const firebase  = require('firebase')
         require('firebase/firestore')
         require('firebase/auth')
 
+
+
+
+const settings = {/* your settings... */ timestampsInSnapshots: true};
+  process.env.FIREBASE_KEY = 'AIzaSyCTXoawGfolxLvERwR6CrPXKbo6Ms1FPfc'
+console.log(process.env);
+
  const init = () => {
   let config = {
-    apiKey: "AIzaSyCTXoawGfolxLvERwR6CrPXKbo6Ms1FPfc",
+    apiKey: process.env.FIREBASE_KEY ,
     authDomain: "roomateapp-57fd6.firebaseapp.com",
     databaseURL: "https://roomateapp-57fd6.firebaseio.com",
     projectId: "roomateapp-57fd6",
@@ -20,7 +27,7 @@ export const firebase  = require('firebase')
 if(!firebase.apps.length){
   init();
 }
-const db = firebase.firestore()
+const db = firebase.firestore().settings(settings)
 const auth = firebase.auth()
 
 export {

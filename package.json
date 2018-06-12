@@ -30,6 +30,8 @@
     "semantic-ui-react": "^0.81.1"
   },
   "devDependencies": {
-    "babel-plugin-inline-import": "^3.0.0"
+    "@types/dotenv": "^4.0.3",
+    "babel-plugin-inline-import": "^3.0.0",
+    "dotenv": "^6.0.0"
   }
 }
