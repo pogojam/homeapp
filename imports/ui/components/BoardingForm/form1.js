@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
+import {Query} from 'react-apollo';
+import {gql} from 'graphql'
+import search_address from '../../../api/mcassesors/mcassesors'
 
+
+
+search_address('8346 E Glenrosa ave').then(data=>console.log(data))
+ 
 class form1 extends Component {
     render() {
         return (

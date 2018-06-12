@@ -7,6 +7,8 @@ import withAuthorization from "../components/withAuthorization";
 import { Query, graphql } from "react-apollo";
 import gql from "graphql-tag";
 import UserContext from "../components/UserContext";
+import { arch } from "os";
+import { EAFNOSUPPORT } from "constants";
 
 const UserHouses = gql`
   query houses($uid: String!) {
@@ -41,10 +43,11 @@ const UserSplash = () => {
           <div className="splash">
             <h1>Welcome to your home</h1>
             Tools help make managing you home easy
+            {activeForm? <UserBoardingForm FormNUM={activeForm} /> :
             <div className="splash-container">
-              <NewHomeAvatar />
+              <NewHomeAvatar handleChangeForm={this.handleChangeForm.bind(this)} />
               <UserHomes />
-            </div>
+            </div>}
           </div>
         </div>
       );
@@ -53,8 +56,17 @@ const UserSplash = () => {
   return withRouter(userSplash);
 };
 
-const NewHomeAvatar = () => (
-  <div className="card" style={{ height: "100%" }}>
+
+const UserBoardingForm = ({FormNUM})=>(
+  <div>
+  {FormNUM === 1 &&<FORMS.form1/>}
+  {FormNUM ===2&&<FORMS.form1/>}
+  {FormNUM ===3&&<FORMS.form1/>}
+  </div>
+)
+
+const NewHomeAvatar = ({handleChangeForm}) => (
+  <div className="card" onClick={()=>handleChangeForm(1)} style={{ height: "100%" }}>
     <h2>Add Home</h2>
     <Icon name="plus" />
   </div>
@@ -70,7 +82,7 @@ const UserHomes = props => (
           {({ loading, error, data }) => {
             if (loading) return "Loading...";
             if (error) return `Error! ${error.message}`;
-            if(data) return data.houses.map((data,i) => <HomeAvatar key={i} {...data} />)
+            if(typeof data.houses === Array) return data.houses.map((data,i) => <HomeAvatar key={i} {...data} />)
             else return null
           }}
         </Query>
