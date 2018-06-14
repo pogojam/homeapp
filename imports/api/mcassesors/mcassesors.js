@@ -4,7 +4,7 @@ const search_address = (propAddress)=>{
     return axios({
         url:' https://api.mcassessor.maricopa.gov/api/search/property/'+propAddress,
         method:'get',
-        headers:{'X-MC-AUTH':process.env.ASSESSOR_KEY}
+        headers:{'X-MC-AUTH':Meteor.settings.public.assesorsAPI}
     })
 }
 

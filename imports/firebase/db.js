@@ -1,6 +1,5 @@
 import {db} from './server'
 
-console.log(process.env.FIREBASE_KEY)
 
 export const doCreateUser  = (email,id)=>{
     db.collection('users').doc(id).set({

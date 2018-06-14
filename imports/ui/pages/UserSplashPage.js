@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { db } from "../../api/firebase";
+import { db } from "../../firebase";
 import { withRouter } from "react-router-dom";
-import * as FORMS from "../components/BoardingForm";
+import {Boardingform} from '../components/BoardingForm'
 import { Icon } from "semantic-ui-react";
 import withAuthorization from "../components/withAuthorization";
 import { Query, graphql } from "react-apollo";
 import gql from "graphql-tag";
 import UserContext from "../components/UserContext";
+
+// Graph QL PASSED
 
 const UserHouses = gql`
   query houses($uid: String!) {
@@ -37,16 +39,26 @@ const UserSplash = () => {
       const { activeForm, home, name } = this.state;
 
       return (
-        <div className="houseboarding">
-          <div className="splash">
-            <h1>Welcome to your home</h1>
-            Tools help make managing you home easy
-            <div className="splash-container">
-              <NewHomeAvatar />
-              <UserHomes />
+        <UserContext.Consumer>
+          {userData => (
+            <div className="houseboarding">
+              <div className="splash">
+                <h1>Welcome to your home</h1>
+                Tools help make managing you home easy
+                <div className="splash-container">
+                  
+                  { activeForm? <Boardingform/>:
+                  <div className="splash-container" >
+                    <NewHomeAvatar />
+                  <UserHomes userData={userData} />
+                  </div>
+                  }
+
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
+        </UserContext.Consumer>
       );
     }
   }
@@ -60,24 +72,25 @@ const NewHomeAvatar = () => (
   </div>
 );
 
-const UserHomes = props => (
-  <UserContext.Consumer>
-    {userData => {
-      const uid = { uid: userData[1] };
-      return (
-        <Query query={UserHouses} variables={uid}>
-          {({ loading, error, data }) => {
-            if (loading) return "Loading...";
-            if (error) return `Error! ${error.message}`;
-            if(data) return data.houses.map((data,i) => <HomeAvatar key={i} {...data} />)
-            else return null
-          }}
-        </Query>
-      );
-    }}
-  </UserContext.Consumer>
-);
+const UserHomes = props => {
+  const uid = { uid: props.userData[1] };
 
+  if (uid.uid === undefined) return null;
+  else
+    return (
+      <Query query={UserHouses} variables={uid}>
+        {({ loading, error, data }) => {
+          if (loading) return "Loading...";
+          if (error) return `Error! ${error.message}`;
+          if (data)
+            return data.houses.map((data, i) => (
+              <HomeAvatar key={i} {...data} />
+            ));
+          else return null;
+        }}
+      </Query>
+    );
+};
 
 const HomeAvatar = ({ name }) => {
   return (

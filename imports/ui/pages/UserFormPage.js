@@ -5,7 +5,7 @@ import {
   Button,
   Checkbox,
 } from "semantic-ui-react";
-import { auth, db } from "../../api/firebase/index";
+import { auth, db } from '../../firebase';
 import { withRouter } from "react-router-dom";
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";

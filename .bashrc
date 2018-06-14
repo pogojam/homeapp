@@ -1,0 +1,1 @@
+alias ms='meteor —-settings settings.json'

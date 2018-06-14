@@ -1,17 +1,16 @@
 import Homes from "./home";
-import {db} from '../firebase'
-
-
-
+import { db } from "../../firebase";
 
 export default {
-
-  Query:{
-    houses(obj,{uid},context){
-      return db.onceGetUsers(uid).get().then(doc => doc.data().houses )
+  Query: {
+    houses(obj, { uid }, context) {
+      return db
+        .onceGetUsers(uid)
+        .get()
+        .then(doc => doc.data().houses);
     }
   },
-  
+
   Mutation: {
     createHome() {
       Homes.insert({

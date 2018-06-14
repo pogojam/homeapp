@@ -3,7 +3,7 @@ import {Button,Icon} from 'semantic-ui-react'
 import Waypoint from 'react-waypoint'
 import {Link, withRouter } from 'react-router-dom'
 import UserContext from '../components/UserContext'
-import {auth} from '../../api/firebase'
+import {auth} from '../../firebase'
 import withAuthorization from '../components/withAuthorization';
 import {Query} from 'react-apollo'
 import gql from 'graphql-tag'
