@@ -9,7 +9,7 @@ const settings = {/* your settings... */ timestampsInSnapshots: true};
 
  const init = () => {
   let config = {
-    apiKey: Meteor.settings.public.firebase.KEY ,
+    apiKey: Meteor.settings.public.firebase ,
     authDomain: "roomateapp-57fd6.firebaseapp.com",
     databaseURL: "https://roomateapp-57fd6.firebaseio.com",
     projectId: "roomateapp-57fd6",
