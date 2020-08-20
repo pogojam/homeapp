@@ -5,7 +5,7 @@
     "start": "meteor --settings settings.json"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.48",
+    "@babel/runtime": "^7.10.5",
     "apollo-cache-inmemory": "^1.2.2",
     "apollo-client": "^2.3.2",
     "apollo-link-http": "^1.5.4",
